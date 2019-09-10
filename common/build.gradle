@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion cfgs.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion cfgs.minSdkVersion
+        targetSdkVersion cfgs.targetSdkVersion
+        versionCode cfgs.versionCode
+        versionName cfgs.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+
+    api project(':picture_library')
+    api project(':ucrop')
+
+    api "com.jakewharton:butterknife:${cfgs.butterknife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${cfgs.butterknife}"
+    api "com.android.support:appcompat-v7:${cfgs.androidSupportVersion}"
+    api "com.android.support:support-v4:${cfgs.androidSupportVersion}"
+    api "com.alibaba:fastjson:${cfgs.fastjson}"
+    api "me.jessyan:autosize:${cfgs.autosize}"  //屏幕适配
+    api "com.gyf.immersionbar:immersionbar:${cfgs.immersionbar}" //状态栏
+    //网络请求
+    api "com.yanzhenjie.nohttp:nohttp:${cfgs.nohttp}"
+    api "com.yanzhenjie.nohttp:okhttp:${cfgs.nohttp}"
+   
+    api "com.github.tbruyelle:rxpermissions:${cfgs.rxpermissions}" //6.0权限
+    api "com.wang.avi:library:${cfgs.library}" //加载动画
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:${cfgs.BaseRecyclerViewAdapterHelper}" // recyclerview 帮助类
+    api "com.github.xiaohaibin:XBanner:${cfgs.XBanner}" //banner图
+}
