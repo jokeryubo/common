@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="EditextWithClearView">
+        <!-- 最大输入字符数-->
         <attr name="ewcv_maxLength" format="integer" />
+        <!-- EditText padding-->
         <attr name="ewcv_paddingTop" format="dimension|reference" />
+        <!-- EditText padding-->
         <attr name="ewcv_paddingBottom" format="dimension|reference" />
+        <!-- EditText margin-->
         <attr name="ewcv_marginRight" format="dimension|reference" />
         <attr name="ewcv_hint" format="string" />
         <attr name="ewcv_textColor" format="color|reference" />
         <attr name="ewcv_textColorHint" format="color|reference" />
         <attr name="ewcv_textCursorDrawable" format="color|reference" />
         <attr name="ewcv_textSize" format="dimension|reference" />
+        <!-- EditText  删除图标样式-->
         <attr name="ewcv_background"  />
+        <!-- EditText  背景颜色-->
         <attr name="ewcv_edit_background" format="color|reference" />
         <attr name="ewcv_inputType" format="enum" >
             <enum name="number" value="0x00000002" />
             <enum name="textPassword" value="0x00000080" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ItemView">
+        <!-- ItemView  根布局高度-->
+        <attr name="iv_rootViewHeight" format="dimension|reference" />
+        <!-- ItemView  左边ICON-->
+        <attr name="iv_leftIcon" format="reference" />
+        <!-- ItemView  左边Text 填充字-->
+        <attr name="iv_itemText" format="string" />
+        <!-- ItemView  textview距左边图片宽度-->
+        <attr name="iv_itemTextMarginLeft" format="dimension|reference" />
+        <!-- ItemView  textview字体颜色-->
+        <attr name="iv_itemTextColor" format="color|reference" />
+        <!-- ItemView  textview字体大小-->
+        <attr name="iv_itemTextSize" format="dimension|reference" />
+        <!-- ItemView  右侧图标-->
+        <attr name="iv_rightIcon" format="reference" />
+        <!-- ItemView  右侧textview-->
+        <attr name="iv_itemRightText" format="string" />
+        <attr name="iv_itemRightMarginRight" format="dimension|reference" />
+        <attr name="iv_itemRightTextColor" format="color|reference" />
+        <attr name="iv_itemRightTextSize" format="dimension|reference" />
+        <!-- ItemView  分割线颜色 -->
+        <attr name="iv_divderColor" format="color|reference" />
     </declare-styleable>
 </resources>

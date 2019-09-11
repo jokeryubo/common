@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-
+//添加这一行，告诉gradle应用到项目中
+apply plugin: 'maven'
 android {
     compileSdkVersion cfgs.compileSdkVersion
 
@@ -22,7 +23,18 @@ android {
         sourceCompatibility 1.8
     }
 }
-
+uploadArchives{
+    repositories.mavenDeployer{
+        // 配置本地仓库路径，这里是项目的根目录下的maven目录中
+        repository(url: uri('../maven'))
+        // 唯一标识 一般为模块包名 也可其他
+        pom.groupId = "com.yb.common"
+        // 项目名称（一般为模块名称 也可其他
+        pom.artifactId = "common"
+        // 发布的版本号
+        pom.version = "1.0.0"
+    }
+}
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
 
