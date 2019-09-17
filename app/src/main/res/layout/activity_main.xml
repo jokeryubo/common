@@ -8,7 +8,6 @@
     <com.yb.common.widget.EditextWithClearView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:background="@color/white"
         app:ewcv_hint="付水电费第三方"
         app:ewcv_textSize="14sp"
@@ -16,4 +15,8 @@
         app:ewcv_maxLength="10000"
         app:ewcv_background="@mipmap/ic_launcher"
         />
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/we"/>
 </LinearLayout>

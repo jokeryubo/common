@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main2Activity">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="按钮"
+        android:id="@+id/btn"/>
+    <com.yb.common.widget.ItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:iv_itemText="服务大厅"
+        app:iv_itemRightText="选择"
+        app:iv_rootViewHeight="60dp"
+        app:iv_rightIcon="@mipmap/right_icon"
+        android:id="@+id/itemview"/>
+    <com.yb.common.widget.EditextWithClearView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="20dp"
+        app:ewcv_hint="付水电费第三方"
+        app:ewcv_textSize="14sp"
+        app:ewcv_maxLength="10000"
+        app:ewcv_background="@mipmap/ic_launcher"
+        />
+</LinearLayout>

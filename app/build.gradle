@@ -24,6 +24,14 @@ android {
             keyPassword '123456'
         }
     }
+    dexOptions {
+
+        javaMaxHeapSize "8g"
+        jumboMode = true
+        dexInProcess true
+        preDexLibraries true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -41,7 +49,7 @@ android {
 
     productFlavors {
         default_channel {}
-        wandoujia {}
+   /*     wandoujia {}
         yingyongbao {}
         huawei {}
         xiaomi {}
@@ -54,7 +62,7 @@ android {
         anzhi {}
         jifeng {}
         sougou {}
-        mumayi {}
+        mumayi {}*/
     }
     productFlavors.all { flavor ->
         flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
@@ -84,6 +92,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
+    lintOptions { // 新增
+
+        abortOnError false
+
+    }
 }
 repositories {
     flatDir {
@@ -94,5 +107,6 @@ repositories {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+//    implementation 'com.github.jokeryubo:common:1.0.0'
     api project(':common')
 }

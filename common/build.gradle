@@ -1,6 +1,20 @@
 apply plugin: 'com.android.library'
-//添加这一行，告诉gradle应用到项目中
-apply plugin: 'maven'
+
+apply plugin: 'com.novoda.bintray-release'
+
+//推送到Bintray配置
+publish {
+    //你的账户bintray下某个组织id
+    userOrg = 'yubo'
+    //Maven仓库下库的包名,与包名相同
+    groupId = 'com.yb.common'
+    //项目名称
+    artifactId = 'common'
+    //版本号
+    publishVersion = cfgs.versionName
+    //项目介绍，必填
+    desc = 'android '
+}
 android {
     compileSdkVersion cfgs.compileSdkVersion
 
@@ -17,29 +31,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions { // 新增
 
+        abortOnError false
+
+        }
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
-}
-uploadArchives{
-    repositories.mavenDeployer{
-        // 配置本地仓库路径，这里是项目的根目录下的maven目录中
-        repository(url: uri('../maven'))
-        // 唯一标识 一般为模块包名 也可其他
-        pom.groupId = "com.yb.common"
-        // 项目名称（一般为模块名称 也可其他
-        pom.artifactId = "common"
-        // 发布的版本号
-        pom.version = "1.0.0"
-    }
+
 }
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-
-    api project(':picture_library')
-    api project(':ucrop')
 
     api "com.jakewharton:butterknife:${cfgs.butterknife}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${cfgs.butterknife}"
@@ -56,4 +60,6 @@ dependencies {
     api "com.wang.avi:library:${cfgs.library}" //加载动画
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:${cfgs.BaseRecyclerViewAdapterHelper}" // recyclerview 帮助类
     api "com.github.xiaohaibin:XBanner:${cfgs.XBanner}" //banner图
+    api 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.4'
 }
+
